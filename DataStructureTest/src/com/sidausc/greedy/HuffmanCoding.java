@@ -5,9 +5,11 @@ import java.util.PriorityQueue;
 
 public class HuffmanCoding {
 	/**
+	 * nLog(n)
 	 * steps:
 	 * 1.  create inner class representing HuffmanNode(HN) char, freq,  left, right for each char and freq
-	 * 2.  add HN to priorityQueue(heap, tree)
+	 * 2.  add HN to priorityQueue(heap, tree), O(nlog(n))
+	 * 	// if arr, and freqArr is sorted then could use two queues-> O(n)
 	 * 3.  create New HN(tree) by removing two min(as left&right) from qp. insert back until only one node left.
 	 * 4.  create arr, traverse tree from top, left child set arr 0, right set 1. 
 	 * 5.  when reach leaf, print arr as code for the char at that leaf
@@ -38,6 +40,7 @@ public class HuffmanCoding {
 		parseTree(huffmanTree, arr, 0);
 	}
 	private static void parseTree(HuffmanNode huffmanTree, int[] arr, int index) {
+		//similar structure as all combination of parenthesis
 		if(huffmanTree.left != null){
 			arr[index]  = 0;
 			parseTree(huffmanTree.left, arr, index+1);

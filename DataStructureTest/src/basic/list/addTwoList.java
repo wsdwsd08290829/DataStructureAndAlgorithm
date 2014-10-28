@@ -19,30 +19,30 @@ public class addTwoList {
 		int carry = 0;
 		int result = 0;
 		ArrayList<Integer> resultList = new ArrayList<Integer>();
-		for(int i=0; i<Math.min( l1.size(), l2.size() ); i++){
-			result= (l1.get(i)+ l2.get(i) + carry)%10;
-			carry = (l1.get(i)+l2.get(i)+carry)/10;
+		for (int i = 0; i < Math.min(l1.size(), l2.size()); i++) {
+			result = (l1.get(i) + l2.get(i) + carry) % 10;
+			carry = (l1.get(i) + l2.get(i) + carry) / 10;
 			resultList.add(result);
 		}
-		if(l1.size()<l2.size()){
-			int i=l1.size();
-			while(i<l2.size()){
-				result= (l2.get(i) + carry)%10;
-				carry = (l2.get(i)+carry)/10;
+		if (l1.size() < l2.size()) {
+			int i = l1.size();
+			while (i < l2.size()) {
+				result = (l2.get(i) + carry) % 10;
+				carry = (l2.get(i) + carry) / 10;
 				resultList.add(result);
 				i++;
 			}
 		}
-		if(l1.size()>l2.size()){
-			int i=l2.size();
-			while(i<l1.size()){
-				result= (l1.get(i) + carry)%10;
-				carry = (l1.get(i)+carry)/10;
+		if (l1.size() > l2.size()) {
+			int i = l2.size();
+			while (i < l1.size()) {
+				result = (l1.get(i) + carry) % 10;
+				carry = (l1.get(i) + carry) / 10;
 				resultList.add(result);
 				i++;
 			}
 		}
-		if(carry != 0){
+		if (carry != 0) {
 			resultList.add(carry);
 		}
 		return resultList;
